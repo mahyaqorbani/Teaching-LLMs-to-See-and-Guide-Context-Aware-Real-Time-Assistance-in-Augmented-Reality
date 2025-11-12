@@ -1,6 +1,8 @@
 # 🧠 Teaching LLMs to See and Guide: Context-Aware Assistance in AR/VR  
 
-This repository presents a **context-aware large language model (LLM) assistant** designed for **real-time, multimodal task guidance** in augmented and virtual reality (AR/VR) environments.  
+This repository presents a **context-aware large language model (LLM) assistant** designed for **real-time, multimodal task guidance** in augmented and virtual reality (AR/VR) environments. 
+
+You can access the paper here: [arXive](https://arxiv.org/abs/2511.00730)
 
 As workers perform complex tasks, AR/VR devices capture rich multimodal data streams—including **gaze**, **hand actions**, **RGB video**, **Depth**, **dialogue history**, and etc—that can reveal user intent and task state in real time.  
 
@@ -23,3 +25,9 @@ This work highlights how **LLM-driven multimodal integration** can enable **adap
 
 By bridging perception, reasoning, and action, this project contributes toward building **trustworthy and context-aware intelligent assistants** for next-generation immersive environments.  
 
+## 🧾 Citation  
+If you use this work, please cite:  
+
+**Qorbani, M., Paynabar, K., & Moghaddam, M. (2025).**  
+*Teaching LLMs to See and Guide: Context-Aware Real-Time Assistance in Augmented Reality.*  
+arXiv preprint arXiv:2511.00730. [https://arxiv.org/abs/2511.00730](https://arxiv.org/abs/2511.00730)
