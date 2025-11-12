@@ -25,9 +25,22 @@ This work highlights how **LLM-driven multimodal integration** can enable **adap
 
 By bridging perception, reasoning, and action, this project contributes toward building **trustworthy and context-aware intelligent assistants** for next-generation immersive environments.  
 
+
+## 🧩 How to Use  
+- `Incremental Prompting Framework.ipynb`: Includes prompt templates for each model and API calls for generating responses. Requires your own endpoint and API key.  
+- `Evaluation Methods.ipynb`: Implements lexical and LLM-as-a-judge evaluation. Run after responses for all four models are generated.
+- `Sample Data.csv`: Provides sample data to help you reproduce results and extend the framework to other applications.
+
 ## 🧾 Citation  
 If you use this work, please cite:  
 
 **Qorbani, M., Paynabar, K., & Moghaddam, M. (2025).**  
 *Teaching LLMs to See and Guide: Context-Aware Real-Time Assistance in Augmented Reality.*  
 arXiv preprint arXiv:2511.00730. [https://arxiv.org/abs/2511.00730](https://arxiv.org/abs/2511.00730)
+
+## 📬 Contact  
+For questions, collaborations, or feedback, feel free to reach out:  
+
+- **Mahya Qorbani** – [mqorbani3@gatech.edu](mailto:mqorbani3@gatech.edu)  
+- **Mohsen Moghaddam** – [mohsen.moghaddam@gatech.edu](mailto:mohsen.moghaddam@gatech.edu)
+
