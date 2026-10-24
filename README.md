@@ -1,46 +1,59 @@
-# 🧠 What Context Matters for LLM-Based AR Task Guidance? A Controlled Empirical Study
+# What Context Matters for LLM-Based AR Task Guidance? A Controlled Empirical Study
 
-This repository presents a **context-aware large language model (LLM) assistant** designed for **online, multimodal task guidance** in augmented and virtual reality (AR/VR) environments. 
+Code and sample data for the paper:
 
-You can access the paper here: [arXive](https://arxiv.org/abs/2511.00730)
+> Mahya Qorbani, Kamran Paynabar, and Mohsen Moghaddam. **What Context Matters for LLM-Based AR Task Guidance? A Controlled Empirical Study.** *ACM Transactions on Interactive Intelligent Systems (TiiS)*, 2026. DOI: _to be added_
 
-As workers perform complex tasks, AR/VR devices capture rich multimodal data streams—including **gaze**, **hand actions**, **RGB video**, **Depth**, **dialogue history**, and etc—that can reveal user intent and task state in real time.  
+An earlier preprint version is available on arXiv: [2511.00730](https://arxiv.org/abs/2511.00730).
 
-Our framework integrates these diverse modalities into a unified prompting pipeline for **adaptive, real-time, and context-aware question answering**. We introduce an **incremental prompting framework** to systematically evaluate how adding contextual information improves model reasoning and response quality. Using the **[HoloAssist dataset](https://holoassist.github.io) from Microsoft Research**, we demonstrate that multimodal context significantly enhances both the accuracy and relevance of LLM-generated guidance.  
+## Overview
 
----
+Large language models (LLMs) lack situational awareness in physical environments: without knowing what a user is doing or where they are in a task, they produce generic guidance. This study examines **which types of contextual information matter most** for LLM-generated task guidance in augmented reality (AR).
 
-## 🚀 Key Features  
-- 🧩 Real-time multimodal LLM assistant for AR/VR task support  
-- 🖐️ Integration of real-time dialouge, hand actions, and task-step context  
-- 🧠 Incremental prompting framework for controlled evaluation  
-- 📊 Experiments conducted on the **HoloAssist** dataset
-- 📊 Ablation studies highlighting the contribution of each contextual input
-- 💬 Insights into multimodal reasoning for intelligent task guidance  
+Using the [HoloAssist dataset](https://holoassist.github.io) (Microsoft Research), four model configurations receive progressively richer context through structured prompt-based context injection:
 
----
+| Model | Context added |
+|---|---|
+| Model 1 (baseline) | Task type, approximate duration, conversation history |
+| Model 2 | + Common task steps |
+| Model 3 | + Current task step at question time |
+| Model 4 | + Temporally aligned hand-action annotations (verb–noun pairs) |
 
-## 💡 Impact  
-This work highlights how **LLM-driven multimodal integration** can enable **adaptive, human-centered AI systems** that transform industrial training and on-the-job assistance through AR and VR technologies.  
+All configurations operate under an **online information constraint**: each response uses only information available up to the moment the question is asked. Contextual signals come from temporally aligned dataset annotations rather than a deployed perception pipeline, which isolates the effect of each context type.
 
-By bridging perception, reasoning, and action, this project contributes toward building **trustworthy and context-aware intelligent assistants** for next-generation immersive environments.  
+Responses are evaluated with lexical metrics (BERTScore, embedding similarity), LLM-as-a-judge scoring, and human evaluation. All-Except-One and Only-One ablations quantify each signal's contribution.
 
+## Key findings
 
-## 🧩 How to Use  
-- `Incremental Prompting Framework.ipynb`: Includes prompt templates for each model and API calls for generating responses. Requires your own endpoint and API key.  
-- `Evaluation Methods.ipynb`: Implements lexical and LLM-as-a-judge evaluation. Run after responses for all four models are generated.
-- `Sample Data.csv`: Provides sample data to help you reproduce results and extend the framework to other applications.
+- Response quality improves monotonically from Model 1 to Model 4 (LLM-judge mean 2.69 → 4.41), consistently across GPT-4o, GPT-4.1, and GPT-5 backbones.
+- Dynamic signals (current step, hand actions) give the largest gains; hand-action data is the most informative single signal, and task duration the least.
+- Human and LLM-judge evaluations agree closely (71.5% winner overlap, Pearson r ≈ 0.74).
 
-## 🧾 Citation  
-If you use this work, please cite:  
+## Repository contents
 
-**Qorbani, M., Paynabar, K., & Moghaddam, M. (2025).**  
-*Teaching LLMs to See and Guide: Context-Aware Real-Time Assistance in Augmented Reality.*  
-arXiv preprint arXiv:2511.00730. [https://arxiv.org/abs/2511.00730](https://arxiv.org/abs/2511.00730)
+- `Incremental Prompting Framework.ipynb`: Prompt templates for the four model configurations and API calls to generate responses. Requires your own Azure OpenAI (or OpenAI) endpoint and API key.
+- `Evaluation Methods.ipynb`: Lexical metrics and LLM-as-a-judge evaluation. Run after responses for all four models have been generated.
+- `Sample Data.csv`: Sample of the processed data for reproducing the workflow and adapting it to other tasks.
 
-## 📬 Contact  
-For questions, collaborations, or feedback, feel free to reach out:  
+The full HoloAssist dataset must be obtained from its [official source](https://holoassist.github.io) under its license.
 
-- **Mahya Qorbani** – [mqorbani3@gatech.edu](mailto:mqorbani3@gatech.edu)  
-- **Mohsen Moghaddam** – [mohsen.moghaddam@gatech.edu](mailto:mohsen.moghaddam@gatech.edu)
+## Citation
 
+```bibtex
+@article{qorbani2026whatcontext,
+  author  = {Qorbani, Mahya and Paynabar, Kamran and Moghaddam, Mohsen},
+  title   = {What Context Matters for {LLM}-Based {AR} Task Guidance? A Controlled Empirical Study},
+  journal = {ACM Transactions on Interactive Intelligent Systems},
+  year    = {2026},
+  doi     = {TBD}
+}
+```
+
+## Contact
+
+- Mahya Qorbani – mqorbani@gatech.edu
+- Mohsen Moghaddam – mohsen.moghaddam@gatech.edu
+
+## Acknowledgments
+
+This work was supported by the National Science Foundation (NSF) under Grant No. 2128743.
