@@ -1,6 +1,6 @@
-# 🧠 Teaching LLMs to See and Guide: Context-Aware Assistance in AR/VR  
+# 🧠 What Context Matters for LLM-Based AR Task Guidance? A Controlled Empirical Study
 
-This repository presents a **context-aware large language model (LLM) assistant** designed for **real-time, multimodal task guidance** in augmented and virtual reality (AR/VR) environments. 
+This repository presents a **context-aware large language model (LLM) assistant** designed for **online, multimodal task guidance** in augmented and virtual reality (AR/VR) environments. 
 
 You can access the paper here: [arXive](https://arxiv.org/abs/2511.00730)
 
